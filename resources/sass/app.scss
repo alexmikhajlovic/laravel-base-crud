@@ -1,0 +1,16 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+.dresses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .dress {
+        max-width: 1000px;
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #777;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
