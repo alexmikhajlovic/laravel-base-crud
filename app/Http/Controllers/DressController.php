@@ -42,8 +42,6 @@ class DressController extends Controller
     {
         $data = $request->all();
 
-        $data = $request->all();
-
         //validate
         $newDress = new Dress;
 
@@ -58,9 +56,9 @@ class DressController extends Controller
 
         $newDress->save();
 
-        // return redirect()->route('dresses.index');
+        return redirect()->route('dresses.index');
 
-        return redirect()->route('dresses.show', $newDress->find($newDress->id));
+        // return redirect()->route('dresses.show', $newDress->id );
     }
 
     /**
