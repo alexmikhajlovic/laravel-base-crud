@@ -7,11 +7,13 @@
 	<div class="container text-center">
 
 		<h1>Dresses</h1>
+
+        <h2><a href="{{ route('dresses.create') }}" rel="noopener noreferrer" title="Add new item"><i class="fas fa-plus-circle"></i></a></h2>
 		
         <table class="table text-light">
             <thead>
                 <tr>
-                    <th scope="col">#id</th>
+                    <th scope="col"><i class="fas fa-hashtag"></i></th>
                     <th scope="col">Name</th>
                     <th scope="col">Item_id</th>
                     <th scope="col"><i class="fas fa-info-circle"></i></th>

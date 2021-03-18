@@ -29,7 +29,7 @@ class DressController extends Controller
      */
     public function create()
     {
-        //
+        return view('dresses.create');
     }
 
     /**
@@ -40,7 +40,27 @@ class DressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $data = $request->all();
+
+        //validate
+        $newDress = new Dress;
+
+        // $newDress->name = $data['name'];
+        // $newDress->item_id = $data['item_id'];
+        // $newDress->color = $data['color'];
+        // $newDress->size = $data['size'];
+        // $newDress->price = $data['price'];
+        // $newDress->overview = $data['overview'];
+
+        $newDress->fill($data);
+
+        $newDress->save();
+
+        // return redirect()->route('dresses.index');
+
+        return redirect()->route('dresses.show', $newDress->find($newDress->id));
     }
 
     /**

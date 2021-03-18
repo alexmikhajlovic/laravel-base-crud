@@ -23,4 +23,3 @@ Route::get('/', function () {
 // })->name('dresses');
 
 Route::resource('dresses', 'DressController');
-
