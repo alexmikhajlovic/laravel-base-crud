@@ -132,6 +132,9 @@ class DressController extends Controller
     {
         $dress->delete();
 
-        return redirect()->route('dresses.index')->with('status', 'Item Deleted!');
+        return redirect()->route('dresses.index');
+
+        // If no JS
+        // return redirect()->route('dresses.index')->with('status', 'Item Deleted!');
     }
 }

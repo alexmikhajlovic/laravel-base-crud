@@ -9,7 +9,7 @@
 		<h2>Add item to database</h2>
 
         <!-- Display of any errors -->
-        <!-- @if ($errors->any())
+        @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif -->
+        @endif
 
         <form class="text-left" method="post" action="{{ route('dresses.update',$selected_dress->id) }}">
         

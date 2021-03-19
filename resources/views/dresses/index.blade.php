@@ -10,11 +10,12 @@
 
         <h2><a href="{{ route('dresses.create') }}" rel="noopener noreferrer" title="Add new item" class="text-light"><i class="fas fa-plus-circle"></i></a></h2>
 
-        @if (session('status'))
+        <!-- // If no JS // A simple alert that alerts you when an item has been deleted -->
+        <!-- @if (session('status'))
             <div class="alert alert-danger">
                 {{ session('status') }}
             </div>
-        @endif
+        @endif -->
 		
         <table class="table text-light">
             <thead>
@@ -38,7 +39,7 @@
                         <button class="btn"><a href="{{route('dresses.edit', [$dress->id])}}" rel="noopener noreferrer" class="text-light p-1"><i class="far fa-edit"></i></a></button>
 
                         <!-- Delete -->
-                        <form action="{{route('dresses.destroy', [$dress->id])}}" method="post" class="d-inline-block">
+                        <form action="{{route('dresses.destroy', [$dress->id])}}" id="delete" method="post" class="d-inline-block">
                         <!-- +++ VERY IMPORTANT +++ -->
                         @method('DELETE')
                         @csrf
