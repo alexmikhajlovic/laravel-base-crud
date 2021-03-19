@@ -43,6 +43,15 @@ class DressController extends Controller
         $data = $request->all();
 
         //validate
+        $request->validate([
+            'name' => 'required|max:255',
+            'item_id' => 'required|unique:dresses|max:100',
+            'color' => 'required|max:20',
+            'size' => 'required|max:5',
+            'price' => 'required|max:10',
+            'overview' => 'required'
+        ]);
+
         $newDress = new Dress;
 
         // $newDress->name = $data['name'];
@@ -51,13 +60,11 @@ class DressController extends Controller
         // $newDress->size = $data['size'];
         // $newDress->price = $data['price'];
         // $newDress->overview = $data['overview'];
-
         $newDress->fill($data);
 
         $newDress->save();
 
         return redirect()->route('dresses.index');
-
         // return redirect()->route('dresses.show', $newDress->id );
     }
 
@@ -70,6 +77,7 @@ class DressController extends Controller
     public function show($id)
     {
         $selected_dress = Dress::find($id);
+    
         if ($selected_dress) {
             $data = [
                 'selected_dress'=>$selected_dress
@@ -86,9 +94,16 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dress $dress)
     {
-        //
+        if ($dress) {
+            $data = [
+                'selected_dress'=>$dress
+            ];
+            return view('dresses.edit', $data);
+        }
+        
+        abort('404');
     }
 
     /**
@@ -98,9 +113,13 @@ class DressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dress $dress)
     {
-        //
+        $data = $request->all();
+
+        $dress->update($data);
+
+        return redirect()->route('dresses.index');
     }
 
     /**
